@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ton Pikachu est là 💛</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/pikachu_happy.png">
+</head>
+<body>
+
+    <!-- Background Music (Hidden) -->
+    <audio id="bg-music" loop autoplay playsinline preload="auto">
+        <source src="audio/(Soft bells, 8-bit sounds).mp3" type="audio/mp3">
+    </audio>
+
+    <div class="app-container">
+        <!-- Floating Hearts Container -->
+        <div id="hearts-container"></div>
+
+        <!-- Settings / Controls -->
+        <div class="controls">
+            <button id="music-btn" class="icon-btn">🎵</button>
+            <button id="theme-btn" class="icon-btn">🌙</button>
+        </div>
+
+        <!-- SECTIONS -->
+
+        <!-- 1. PAGE D’ACCUEIL -->
+        <section id="home" class="active">
+            <h1 class="fade-in">Coucou Faika 💛 <br>Je suis là pour toi</h1>
+            <div class="pikachu-container bounce">
+                <img src="assets/pikachu_happy.png" alt="Pikachu" id="pikachu-img">
+            </div>
+            <p id="pikachu-msg" class="message-box fade-in">« Pikaaa 💕 Tu me manques »</p>
+            
+            <nav class="main-nav">
+                <button onclick="router('hug')" class="nav-btn">Faire un câlin 🤍</button>
+                <button onclick="router('messages')" class="nav-btn">Message du jour ⚡</button>
+                <button onclick="router('timeline')" class="nav-btn">Nous deux 💑</button>
+                <button onclick="router('miss-you')" class="nav-btn">Quand je te manque 🌒</button>
+            </nav>
+        </section>
+
+        <!-- 2. BOUTON “CÂLIN” -->
+        <section id="hug" class="hidden">
+            <button class="back-btn" onclick="router('home')">⬅ Retour</button>
+            <div class="hug-content">
+                <h2 class="fade-in">Câlin envoyé à Faika 🫂</h2>
+                <div class="pikachu-container zoom-in" id="hug-pikachu">
+                    <div class="hug-arms" aria-hidden="true">
+                        <span class="arm arm-left"></span>
+                        <span class="arm arm-right"></span>
+                    </div>
+                    <img src="assets/pikachu_hug.png" alt="Pikachu Câlin">
+                </div>
+                <p id="hug-msg" class="message-box fade-in">« Tu es en sécurité ici »</p>
+                <button onclick="sendHug()" class="action-btn">Encore un câlin ✨</button>
+            </div>
+        </section>
+
+        <!-- 3. PAGE “MESSAGES DE PIKACHU” -->
+        <section id="messages" class="hidden">
+            <button class="back-btn" onclick="router('home')">⬅ Retour</button>
+            <h2>Message du jour ⚡</h2>
+            <div class="pikachu-container">
+                <img src="assets/pikachu_love.png" alt="Pikachu Love">
+            </div>
+            <div class="card">
+                <p id="daily-msg">« ... »</p>
+            </div>
+            <button onclick="newDailyMessage()" class="action-btn">Nouveau message 💌</button>
+        </section>
+
+        <!-- 4. PAGE “NOUS DEUX” -->
+        <section id="timeline" class="hidden">
+            <button class="back-btn" onclick="router('home')">⬅ Retour</button>
+            <h2>Nous Deux 💛</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <span class="date">Le début</span>
+                    <p>La rencontre d'un duo incroyable.</p>
+                </div>
+                <!-- More items will be dynamic or hardcoded here -->
+                <div class="timeline-item">
+                    <span class="date">Aujourd'hui</span>
+                    <p>Toujours aussi amoureux.</p>
+                </div>
+            </div>
+            <div class="pikachu-comment">
+                <img src="assets/pikachu_happy.png" class="mini-pika">
+                <p>« J’étais là depuis le début 😌 »</p>
+            </div>
+        </section>
+
+        <!-- 5. PAGE “QUAND TU ME MANQUES” -->
+        <section id="miss-you" class="hidden">
+            <button class="back-btn" onclick="router('home')">⬅ Retour</button>
+            <h2 id="miss-you-title">Tu me manques ?</h2>
+            <div class="pikachu-container">
+                <img src="assets/pikachu_sleep.png" id="miss-you-img" alt="Pikachu Sleep">
+            </div>
+            <p id="time-based-msg" class="message-box">« ... »</p>
+        </section>
+        
+        <!-- FINAL FOOTER LINK -->
+        <footer>
+            <button onclick="router('final')" class="link-btn">Un dernier mot...</button>
+        </footer>
+
+        <!-- PAGE FINALE -->
+        <section id="final" class="hidden">
+            <button class="back-btn" onclick="router('home')">⬅ Retour</button>
+            <div class="final-content fade-in">
+                <p class="emotional-text">
+                    « Je ne pouvais pas t’offrir un doudou…<br>
+                    alors j’ai créé quelque chose qui reste avec toi,<br>
+                    même quand je ne peux pas être là.<br><br>
+                    Bonne Saint-Valentin Faika 💛 »
+                </p>
+                <div class="signature">
+                    <p>Ton copain + Pikachu ⚡</p>
+                    <img src="assets/pikachu_love.png" class="mini-pika">
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
